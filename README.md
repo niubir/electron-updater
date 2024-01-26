@@ -45,4 +45,6 @@ npm i @niubir/electron-updater
       devUpdateConfigPath: devUpdateConfigPath
     }
   })
+  
+  versionCheck()
   ```

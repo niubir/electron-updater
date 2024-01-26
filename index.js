@@ -34,16 +34,12 @@ let v = {
 let windowCfg = {
   width: 400,
   height: 200,
-  minWidth: 400,
-  minHeight: 200,
-  maxWidth: 400,
-  maxHeight: 200,
   icon: null,
 }
 let window = null
 let parentWindowGetter = null
 const windowPreload = path.join(__dirname, './page/preload.js')
-let windowLoadFile = path.join(__dirname, './page/index.html')
+let windowLoadFile = path.join(__dirname, './page/static/index.html')
 let updaterValid = false
 
 // util-----------------------------------------------------------------------------------------------
@@ -198,6 +194,8 @@ const createWindow = () => {
     modal: modal,
     width: windowCfg.width,
     height: windowCfg.height,
+    minWidth: windowCfg.width,
+    minHeight: windowCfg.height,
     icon: windowCfg.icon,
     transparent: true,
     backgroundColor: '#00000000',
@@ -325,8 +323,8 @@ const setParentWindowsGetter = (getter) => {
  */
 const setWindowConfig = (config = {
   windowLoadFile: null,
-  width: 400,
-  height: 250,
+  width: null,
+  height: null,
   icon: null,
 }) => {
   if (config.windowLoadFile) {
@@ -335,10 +333,6 @@ const setWindowConfig = (config = {
   if (config.width > 0 && config.height > 0) {
     windowCfg.width = config.width
     windowCfg.height = config.height
-    windowCfg.minWidth = config.width
-    windowCfg.minHeight = config.height
-    windowCfg.maxWidth = config.width
-    windowCfg.maxHeight = config.height
   }
   if (config.icon) {
     windowCfg.icon = config.icon
