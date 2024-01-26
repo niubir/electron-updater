@@ -1,0 +1,22 @@
+{
+  "name": "niubir-electron-version",
+  "version": "1.0.1",
+  "description": "niubir electron version",
+  "keywords": [
+    "electron"
+  ],
+  "author": "niubir",
+  "license": "ISC",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "page",
+    "README.md"
+  ],
+  "dependencies": {
+    "electron-updater": "^6.1.7"
+  },
+  "devDependencies": {
+    "electron": "^28.1.4"
+  }
+}
