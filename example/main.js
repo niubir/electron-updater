@@ -31,17 +31,21 @@ app.whenReady().then(() => {
   mainWindowShow()
   initAutoUpdater({
     version: version,
-    languageGetter: ()=>{return 'FA'},
+    languageGetter: ()=>{return 'EN'},
     parentWindowGetter: mainWindowGetter,
     updaterConfig: {
       feedURL: publish[0].url,
       devUpdateConfigPath: devUpdateConfigPath
-    }
+    },
+    windowConfig: {
+      mainColor: 'red',
+      mainPrimaryColor: '#f56c6c',
+      mainWhiteColor: '#fcd3d3',
+      mainWhite1Color: '#fef0f0',
+    },
   })
 
-  setTimeout(() => {
-    versionCheck()
-  }, 1000)
+  versionCheck()
 
   app.on('activate', () => {
     mainWindowShow()

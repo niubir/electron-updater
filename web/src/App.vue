@@ -17,7 +17,7 @@ window.api.Ver().then(data=>{
     downloadRate.value = 100
   }
 }).catch(err=>{
-  alert(err)
+  console.error("Ver failed:", err)
 })
 window.api.VerListen((data)=>{
   // console.log("VerListen:", data)
@@ -99,14 +99,14 @@ const operate = () => {
   switch (version.value.status) {
     case 'OUTDATED':
       window.api.VerDown().catch(err=>{
-        alert(err)
+        console.error("VerDown failed:", err)
       }).finally(()=>{
         operating.value = false
       })
       break
     case 'DOWNLOADED':
       window.api.VerInst().catch(err=>{
-        alert(err)
+        console.error("VerInst failed:", err)
       }).finally(()=>{
         operating.value = false
       })

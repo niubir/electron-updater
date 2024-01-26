@@ -7,6 +7,7 @@ contextBridge.exposeInMainWorld('api', {
   VerLang: () => invoke('VerLang'),
   VerCheck: () => invoke('VerCheck'),
   VerClose: () => invoke('VerClose'),
+  VerStyle: () => invoke('VerStyle'),
   VerListen: (cb) => on('VerListen', cb),
   VerListenDown: (cb) => on('VerListenDown', cb),
 })

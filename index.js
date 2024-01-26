@@ -35,6 +35,13 @@ let windowCfg = {
   width: 400,
   height: 200,
   icon: null,
+  appBackgroundColor: null,
+  headerBackgroundColor: null,
+  headerColor: null,
+  mainColor: null,
+  mainPrimaryColor: null,
+  mainWhiteColor: null,
+  mainWhite1Color: null,
 }
 let window = null
 let parentWindowGetter = null
@@ -204,9 +211,9 @@ const createWindow = () => {
       preload: windowPreload,
     }
   })
-  window.loadFile(windowLoadFile)
-  // window.loadURL('http://127.0.0.1:10001')
-  // window.webContents.openDevTools()
+  // window.loadFile(windowLoadFile)
+  window.loadURL('http://127.0.0.1:10001')
+  window.webContents.openDevTools()
 }
 const windowDestroyed = () => {
   return !window || window.isDestroyed()
@@ -258,6 +265,17 @@ const initIPC = () => {
       return languageGetter()
     }
     return EN
+  })
+  ipcHandler('VerStyle', () => {
+    return {
+      appBackgroundColor: windowCfg.appBackgroundColor,
+      headerBackgroundColor: windowCfg.headerBackgroundColor,
+      headerColor: windowCfg.headerColor,
+      mainColor: windowCfg.mainColor,
+      mainPrimaryColor: windowCfg.mainPrimaryColor,
+      mainWhiteColor: windowCfg.mainWhiteColor,
+      mainWhite1Color: windowCfg.mainWhite1Color,
+    }
   })
   ipcHandler('VerCheck', () => {
     return versionCheck()
@@ -320,23 +338,40 @@ const setParentWindowsGetter = (getter) => {
  * @param {number} width - width.
  * @param {number} height - height.
  * @param {string} icon - icon path.
+ * @param {string} appBackgroundColor - app background color.
+ * @param {string} headerBackgroundColor - header background color.
+ * @param {string} headerColor - header color.
+ * @param {string} mainColor - main color.
+ * @param {string} mainPrimaryColor - main primary color.
+ * @param {string} mainWhiteColor - main white color.
+ * @param {string} mainWhite1Color - main white 1 color.
  */
 const setWindowConfig = (config = {
   windowLoadFile: null,
   width: null,
   height: null,
   icon: null,
+  appBackgroundColor: null,
+  headerBackgroundColor: null,
+  headerColor: null,
+  mainColor: null,
+  mainPrimaryColor: null,
+  mainWhiteColor: null,
+  mainWhite1Color: null,
 }) => {
-  if (config.windowLoadFile) {
-    windowLoadFile = config.windowLoadFile
-  }
+  if (config.windowLoadFile) windowLoadFile = config.windowLoadFile
   if (config.width > 0 && config.height > 0) {
     windowCfg.width = config.width
     windowCfg.height = config.height
   }
-  if (config.icon) {
-    windowCfg.icon = config.icon
-  }
+  if (config.icon) windowCfg.icon = config.icon
+  if (config.appBackgroundColor) windowCfg.appBackgroundColor = config.appBackgroundColor
+  if (config.headerBackgroundColor) windowCfg.headerBackgroundColor = config.headerBackgroundColor
+  if (config.headerColor) windowCfg.headerColor = config.headerColor
+  if (config.mainColor) windowCfg.mainColor = config.mainColor
+  if (config.mainPrimaryColor) windowCfg.mainPrimaryColor = config.mainPrimaryColor
+  if (config.mainWhiteColor) windowCfg.mainWhiteColor = config.mainWhiteColor
+  if (config.mainWhite1Color) windowCfg.mainWhite1Color = config.mainWhite1Color
 }
 
 /**
