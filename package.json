@@ -1,12 +1,14 @@
 {
-  "name": "niubir-electron-version",
-  "version": "1.0.1",
-  "description": "niubir electron version",
-  "keywords": [
-    "electron"
-  ],
+  "name": "@niubir/electron-updater",
+  "version": "0.0.1",
+  "description": "This electron updater util",
+  "keywords": ["electron", "electron-updater"],
   "author": "niubir",
   "license": "ISC",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "main": "index.js",
   "files": [
     "index.js",

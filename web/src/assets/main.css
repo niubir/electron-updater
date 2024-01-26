@@ -1,0 +1,118 @@
+:root {
+  --app-background: #FFF;
+  --page-background: #FFF;
+  --header-background: #F8F8F8;
+  --header-color: #000;
+  --header-height: 2.4rem;
+  --font-color: #000;
+  --main-color: #000;
+  --van-primary-color: #FB941D !important;
+  --van-button-primary-color: #FFF !important;
+  --van-circle-color: var(--van-primary-color) !important;
+  --van-circle-layer-color: #F7F8FA !important;
+  --van-circle-text-color: var(--van-primary-color) !important;
+}
+
+/* html */
+html {
+  font-size: 12px;
+
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+
+  background: rgba(0,0,0,0);
+  border-radius: 0.8rem;
+
+  user-select: none;
+}
+body {
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  
+  padding: 0;
+  margin: 0;
+
+  border: 1px solid #E1E1E1;
+  border-radius: 0.8rem;
+
+  background: rgba(0,0,0,0);
+  overflow: auto;
+}
+#app {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+
+  border-radius: 0.8rem;
+
+  background: var(--app-background);
+  overflow: auto;
+}
+.page {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.8rem;
+
+  /* background: var(--page-background); */
+  overflow: auto;
+}
+
+/* header */
+.header {
+  color: var(--header-color);
+  width: 100%;
+  height: var(--header-height);
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.08);
+  background: var(--header-background);
+  -webkit-app-region: drag;
+}
+.header > div {
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+.header .left {
+  left: 1rem;
+  justify-content: flex-start;
+}
+.header .right {
+  right: 1rem;
+  justify-content: flex-end;
+}
+.header .center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+}
+.header .no-drag {
+  -webkit-app-region: no-drag;
+}
+.header .window-operater {
+  width: 1.3rem;
+  height: 1.4rem;
+}
+
+/* main */
+.main {
+  color: var(--main-color);
+  width: 100%;
+  height: calc(100% - var(--header-height));
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 0;
+}
