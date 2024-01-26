@@ -1,7 +1,7 @@
-# electron-updater
+# [electron-updater](https://github.com/niubir/electron-updater)
 * This is an update component about electron
 
-## [Server Install](https://github.com/niubir/electron-updater)
+## [Server Install](https://github.com/niubir/electron-updater/blob/main/server/README.md)
 
 ## Quick Setup Guide
 
