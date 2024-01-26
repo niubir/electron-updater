@@ -1,0 +1,3 @@
+provider: generic
+url: http://test_01.zyytest.com/update
+updaterCacheDirName: ./downloads

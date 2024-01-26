@@ -1,0 +1,87 @@
+{
+  "name": "example",
+  "version": "0.0.1",
+  "description": "This is electron autoupdate example",
+  "keywords": [
+    "electron",
+    "electron-updater"
+  ],
+  "main": "main.js",
+  "scripts": {
+    "gen": "node gen.js",
+    "dev": "nodemon --exec electron . --ext .json,.js,.css,.html",
+    "build": "electron-builder"
+  },
+  "author": "niubir",
+  "license": "ISC",
+  "dependencies": {
+    "@niubir/electron-updater": "^1.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.1",
+    "electron": "^28.1.4",
+    "electron-builder": "^24.9.1",
+    "nodemon": "^3.0.3"
+  },
+  "build": {
+    "appId": "autoupdate.electron.example",
+    "productName": "electron-autoupdate-example",
+    "artifactName": "electron-autoupdate-example-setup-${os}-${arch}-v${version}.${ext}",
+    "copyright": "This is electron auto update example",
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false
+    },
+    "win": {
+      "requestedExecutionLevel": "highestAvailable",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ]
+    },
+    "dmg": {
+      "sign": false,
+      "contents": [
+        {
+          "x": 300,
+          "y": 130,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 70,
+          "y": 130,
+          "type": "file"
+        }
+      ],
+      "window": {
+        "x": 400,
+        "y": 200,
+        "width": 405,
+        "height": 300
+      }
+    },
+    "mac": {
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "target": {
+        "target": "dmg",
+        "arch": [
+          "x64",
+          "arm64"
+        ]
+      }
+    },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "http://test_01.zyytest.com/update"
+      }
+    ]
+  }
+}
